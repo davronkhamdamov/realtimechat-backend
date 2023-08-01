@@ -10,7 +10,7 @@ const PORT = process.env.PORT
 import userRoutes from './router/userRoutes.js'
 
 
-app.use(cors)
+app.use(cors())
 app.use(express.json())
 
 
