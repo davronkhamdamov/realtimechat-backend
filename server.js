@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import Connect_DB from './config/db.js';
-
+import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 dotenv.config()
 Connect_DB()
 const app = express()
@@ -16,6 +16,8 @@ app.use(express.json())
 
 app.use('/api/user', userRoutes)
 
+app.use(notFound)
+app.use(errorHandler)
 
 
 app.listen(PORT, () => {
